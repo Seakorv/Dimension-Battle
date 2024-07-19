@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgrs8uihg3uvp"]
+
+[ext_resource type="Shader" path="res://Shaders/Toon.gdshader" id="1_vhxgk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ou6rv"]
+render_priority = 0
+shader = ExtResource("1_vhxgk")
+shader_parameter/albedo = Color(1, 1, 0, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qaag5"]
+material = SubResource("ShaderMaterial_ou6rv")
+
+[node name="PlayersCircle" type="Area3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, 4.80697e-11, -1, 0, -0.00109971, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qaag5")

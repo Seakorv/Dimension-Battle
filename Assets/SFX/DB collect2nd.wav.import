@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dut24l512v5tr"
+path="res://.godot/imported/DB collect2nd.wav-4acf043ca63142c4d0339bd1d0937679.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/DB collect2nd.wav"
+dest_files=["res://.godot/imported/DB collect2nd.wav-4acf043ca63142c4d0339bd1d0937679.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

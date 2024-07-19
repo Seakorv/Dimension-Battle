@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca2nf4ghecexr"]
+
+[ext_resource type="Script" path="res://Scripts/enemies.gd" id="1_sp806"]
+[ext_resource type="Material" uid="uid://b2y7ggrl6d177" path="res://Shaders/enemy_material.tres" id="2_4v4af"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7oatk"]
+material = ExtResource("2_4v4af")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hb5yd"]
+height = 1.4543
+
+[node name="EnemyCylinder" type="Area3D"]
+collision_layer = 32
+collision_mask = 76
+script = ExtResource("1_sp806")
+shape_ID = 3
+my_2D_two = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.724, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_7oatk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_hb5yd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

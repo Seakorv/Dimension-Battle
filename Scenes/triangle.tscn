@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkmcfpufaki1e"]
+
+[ext_resource type="Script" path="res://Scripts/Shapes2D.gd" id="1_cgss4"]
+[ext_resource type="Shader" path="res://Shaders/Toon.gdshader" id="2_7rvow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5yoc"]
+size = Vector3(1.10968, 0.0555878, 1.12339)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aelfj"]
+render_priority = 0
+shader = ExtResource("2_7rvow")
+shader_parameter/albedo = Color(0, 0.952941, 0, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="PrismMesh" id="PrismMesh_6h4vl"]
+material = SubResource("ShaderMaterial_aelfj")
+
+[node name="Triangle" type="Area3D"]
+script = ExtResource("1_cgss4")
+my_shape_ID = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.719212, 0, -0.698012, 0, 1.00224, 0, 0.698012, 0, 0.719212, -0.00143558, 0.0131149, -0.264233)
+shape = SubResource("BoxShape3D_v5yoc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.12314, 0, -4.14041e-27, -1.71234e-23, -4.57379e-08, -0.000271574, 0, 1.04636, -1.18709e-11, 0, 0, 0)
+mesh = SubResource("PrismMesh_6h4vl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

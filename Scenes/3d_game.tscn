@@ -1,0 +1,265 @@
+[gd_scene load_steps=40 format=3 uid="uid://cnbcvkprqu20k"]
+
+[ext_resource type="PackedScene" uid="uid://c43keaw201nkq" path="res://Scenes/player_3d.tscn" id="1_eiflu"]
+[ext_resource type="Script" path="res://Scripts/3d_game.gd" id="1_su2l4"]
+[ext_resource type="Script" path="res://Scripts/Walls.gd" id="2_7p0tp"]
+[ext_resource type="PackedScene" uid="uid://lpi5npiqyx06" path="res://Scenes/circle.tscn" id="2_jfxdi"]
+[ext_resource type="PackedScene" uid="uid://dqyi1hbdgp8nf" path="res://Scenes/square.tscn" id="3_xi17o"]
+[ext_resource type="PackedScene" uid="uid://dkmcfpufaki1e" path="res://Scenes/triangle.tscn" id="4_cy0ed"]
+[ext_resource type="PackedScene" uid="uid://ikfkrmu7r4xj" path="res://Scenes/enemy_sphere.tscn" id="5_36duw"]
+[ext_resource type="PackedScene" uid="uid://qbotxte7rp7p" path="res://Scenes/enemy_cube.tscn" id="6_t8blw"]
+[ext_resource type="Script" path="res://Scripts/Killbox.gd" id="7_j52rn"]
+[ext_resource type="PackedScene" uid="uid://dhi00hfeaveik" path="res://Scenes/enemy_pyramid.tscn" id="7_ksxjp"]
+[ext_resource type="PackedScene" uid="uid://ca2nf4ghecexr" path="res://Scenes/enemy_cylinder.tscn" id="8_3uheg"]
+[ext_resource type="Script" path="res://Scripts/Goal.gd" id="8_52h5y"]
+[ext_resource type="PackedScene" uid="uid://bcxceq1ijugpw" path="res://Scenes/enemy_prism.tscn" id="9_8xckp"]
+[ext_resource type="PackedScene" uid="uid://b7uvc8uiitgls" path="res://Scenes/enemy_cone.tscn" id="10_3g3gw"]
+[ext_resource type="Shader" path="res://Shaders/chrab.gdshader" id="12_wxe3t"]
+[ext_resource type="Shader" path="res://Shaders/Toon.gdshader" id="13_m0a60"]
+[ext_resource type="PackedScene" uid="uid://dju7g4scbwtj1" path="res://Scenes/hud.tscn" id="15_33baq"]
+[ext_resource type="PackedScene" uid="uid://dx71toiip3vfv" path="res://Scenes/game_over.tscn" id="16_haa4j"]
+[ext_resource type="AudioStream" uid="uid://davw6p8bdwjag" path="res://Assets/SFX/DB hit1.wav" id="17_jfna5"]
+[ext_resource type="Material" uid="uid://bhjsidfus7hq1" path="res://Shaders/3d_game.tres" id="18_fhevi"]
+[ext_resource type="AudioStream" uid="uid://cgyavwd4h0esm" path="res://Assets/SFX/DB hit2.wav" id="18_wmhmo"]
+[ext_resource type="AudioStream" uid="uid://cssc0ih6n5khn" path="res://Assets/SFX/DB hit3.wav" id="19_8ud80"]
+[ext_resource type="AudioStream" uid="uid://cornrfqxkbx7p" path="res://Assets/SFX/DB hit4.wav" id="20_27acu"]
+[ext_resource type="AudioStream" uid="uid://becxggiv00oho" path="res://Assets/SFX/DB hit5.wav" id="21_cy3kp"]
+[ext_resource type="AudioStream" uid="uid://bntwawu7d2xns" path="res://Assets/SFX/DB hit6.wav" id="22_0ouqs"]
+[ext_resource type="AudioStream" uid="uid://c3juclhlmk2tl" path="res://Assets/SFX/DB hit7.wav" id="23_sac67"]
+[ext_resource type="AudioStream" uid="uid://biyo7iy6drc3s" path="res://Assets/SFX/DB hit8.wav" id="24_44gu0"]
+[ext_resource type="AudioStream" uid="uid://cek6q3lfgsvy1" path="res://Assets/SFX/DB hit9.wav" id="25_kijt5"]
+[ext_resource type="AudioStream" uid="uid://da5jr20ymjd6g" path="res://Assets/SFX/DB streak broken.wav" id="26_l0uw6"]
+[ext_resource type="AudioStream" uid="uid://8fv3fi3h14sm" path="res://Assets/SFX/DB life lost.wav" id="27_h1bwe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t04ch"]
+shader = ExtResource("12_wxe3t")
+shader_parameter/levels = 10
+shader_parameter/spread = 0.001
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4tum"]
+render_priority = 0
+shader = ExtResource("13_m0a60")
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6gxvn"]
+material = SubResource("ShaderMaterial_m4tum")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83j8h"]
+render_priority = 0
+shader = ExtResource("13_m0a60")
+shader_parameter/albedo = Color(0.00262472, 0.152805, 0.676996, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="BoxMesh" id="BoxMesh_082xv"]
+material = SubResource("ShaderMaterial_83j8h")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hawo"]
+size = Vector3(1.29309, 11.1356, 32.89)
+
+[sub_resource type="Curve3D" id="Curve3D_h1s4d"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.87473, 0.0694796, 0.350191, 0, 0, 0, 0, 0, 0, -3.6295, 0.0608218, 0.506813),
+"tilts": PackedFloat32Array(1.52267, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqhp2"]
+size = Vector3(11.6362, 13.3732, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtw5q"]
+size = Vector3(13.0732, 29.5855, 4.11917)
+
+[node name="3DGame" type="Node3D"]
+transform = Transform3D(1, -3.48788e-16, 3.48788e-16, 3.48788e-16, 1, -3.48785e-16, -3.48788e-16, 3.48785e-16, 1, 0, 0, 0)
+script = ExtResource("1_su2l4")
+shapes_2D_scenes = Array[PackedScene]([ExtResource("2_jfxdi"), ExtResource("3_xi17o"), ExtResource("4_cy0ed")])
+enemies = Array[PackedScene]([ExtResource("5_36duw"), ExtResource("6_t8blw"), ExtResource("7_ksxjp"), ExtResource("8_3uheg"), ExtResource("9_8xckp"), ExtResource("10_3g3gw")])
+enemy_timer_wait_time = 2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="crtpps" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("18_fhevi")
+offset_left = -176.0
+offset_top = -55.0
+offset_right = 1166.0
+offset_bottom = 2013.0
+
+[node name="chromatic" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_t04ch")
+offset_left = -176.0
+offset_top = -55.0
+offset_right = 1166.0
+offset_bottom = 2013.0
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("15_33baq")]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("16_haa4j")]
+visible = false
+
+[node name="Player3D" parent="." instance=ExtResource("1_eiflu")]
+transform = Transform3D(1, 1.16936e-23, -4.38392e-24, 1.58352e-22, 1, -1.58352e-22, 7.88938e-24, -1.16936e-23, 1, -4.176e-16, 0.059986, 1.25728)
+collision_mask = 18
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.971256, 9.85873e-17, 1.43199e-16, -1.43199e-16, 0.907303, 0.34661, -9.85874e-17, -0.34661, 0.907303, 8.68422e-16, 11.6488, 9.15894)
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.86458, 1.1531e-22, -2.51604e-07, 3.7916e-21, 1.00471, -3.90187e-21, 9.34079e-08, -1.1531e-22, 22.1298, 3.46034e-15, -0.00727779, -9.92108)
+mesh = SubResource("PlaneMesh_6gxvn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.829082, 0.53163, 0.173186, -0.504715, 0.578308, 0.640954, 0.240596, -0.618813, 0.747786, 0.86893, 43.8009, 16.7429)
+
+[node name="Walls" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 15
+script = ExtResource("2_7p0tp")
+
+[node name="WallLeft" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 3.00629e-21, -7.6282e-22, 1.58352e-22, 35.2791, -2.65645e-20, 7.88938e-24, -3.00629e-21, 32.7111, -5.03306, 17.0086, -7.70795)
+mesh = SubResource("BoxMesh_082xv")
+skeleton = NodePath("../..")
+
+[node name="WallBack" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.33153e-08, -1.32765e-14, -10.7869, 3.45626e-16, 38.0647, -3.76233e-15, 0.990938, -1.32765e-14, -4.71511e-07, 0.169296, 18.1484, -23.5506)
+mesh = SubResource("BoxMesh_082xv")
+skeleton = NodePath("../..")
+
+[node name="WallRight" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 1.68542e-21, -7.6282e-22, 1.58352e-22, 34.0397, -2.82585e-20, 7.88938e-24, -1.68542e-21, 32.7111, 5.32705, 16.4417, -7.70795)
+mesh = SubResource("BoxMesh_082xv")
+skeleton = NodePath("../..")
+
+[node name="CollisionLeft" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 1.16936e-23, -4.38392e-24, 1.58352e-22, 1, -1.58352e-22, 7.88938e-24, -1.16936e-23, 1, -5.14444, 5.06781, -7.44775)
+shape = SubResource("BoxShape3D_6hawo")
+
+[node name="CollisionRight" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(1, 1.16936e-23, -4.38392e-24, 1.58352e-22, 1, -1.58352e-22, 7.88938e-24, -1.16936e-23, 1, 5.44727, 5.06781, -7.44775)
+shape = SubResource("BoxShape3D_6hawo")
+
+[node name="Shapes2DContainer" type="Node3D" parent="."]
+
+[node name="Spawn2DPath" type="Path3D" parent="."]
+transform = Transform3D(1, 1.16936e-23, -4.38392e-24, 1.58352e-22, 1, -1.58352e-22, 7.88938e-24, -1.16936e-23, 1, -0.0251943, -0.0593843, -25.7401)
+curve = SubResource("Curve3D_h1s4d")
+
+[node name="Spawn2DLocation" type="PathFollow3D" parent="Spawn2DPath"]
+transform = Transform3D(-0.00215568, 0.0207872, 0.999782, 0.99884, 0.0481085, 0.00115343, -0.0480731, 0.998642, -0.0208665, 3.87473, 0.0694796, 0.350191)
+
+[node name="SpawnPathEnemies" type="Path3D" parent="."]
+transform = Transform3D(1, -1.21652e-31, 0, 1.58819e-22, 1, -1.58819e-22, 0, 0, 1, -0.0251943, 4.67759, -25.7401)
+curve = SubResource("Curve3D_h1s4d")
+
+[node name="SpawnLocationEnemies" type="PathFollow3D" parent="SpawnPathEnemies"]
+transform = Transform3D(-0.00215568, 0.0207872, 0.999782, 0.99884, 0.0481085, 0.00115343, -0.0480731, 0.998642, -0.0208665, 3.87473, 0.0694796, 0.350191)
+
+[node name="Killbox" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 12
+script = ExtResource("7_j52rn")
+
+[node name="ProjectileKillBox" type="CollisionShape3D" parent="Killbox"]
+transform = Transform3D(1, 7.17463e-21, -1.724e-22, 4.13168e-24, 1.00005, -4.13168e-24, 1.04306e-20, -7.17463e-21, 1, 0.197022, 6.5208, -23.7949)
+shape = SubResource("BoxShape3D_xqhp2")
+
+[node name="ProjectileContainer" type="Node3D" parent="."]
+
+[node name="Goal" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 32
+script = ExtResource("8_52h5y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Goal"]
+transform = Transform3D(1, -1.21652e-31, 0, -1.21652e-31, 1, 0, 0, 0, 1, -0.32959, 14.2927, 6.23161)
+shape = SubResource("BoxShape3D_vtw5q")
+
+[node name="EnemyContainer" type="Node3D" parent="."]
+
+[node name="Timer2D" type="Timer" parent="."]
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="SFX" type="Node3D" parent="."]
+
+[node name="hitsfx" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("17_jfna5")
+volume_db = -3.0
+
+[node name="hitsfx2" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("18_wmhmo")
+volume_db = -3.0
+
+[node name="hitsfx3" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("19_8ud80")
+volume_db = -3.0
+
+[node name="hitsfx4" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("20_27acu")
+volume_db = -3.0
+
+[node name="hitsfx5" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("21_cy3kp")
+volume_db = -3.0
+
+[node name="hitsfx6" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("22_0ouqs")
+volume_db = -3.0
+
+[node name="hitsfx7" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("23_sac67")
+volume_db = -3.0
+
+[node name="hitsfx8" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("24_44gu0")
+volume_db = -3.0
+
+[node name="hitsfx9" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("25_kijt5")
+volume_db = -3.0
+
+[node name="FailSFX" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("26_l0uw6")
+
+[node name="LifeLostSFX" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("27_h1bwe")
+volume_db = -3.0
+pitch_scale = 0.83
+
+[connection signal="area_entered" from="Walls" to="Walls" method="_on_area_entered"]
+[connection signal="area_exited" from="Walls" to="Player3D" method="_on_walls_area_exited"]
+[connection signal="area_entered" from="Killbox" to="Killbox" method="_on_area_entered"]
+[connection signal="area_entered" from="Goal" to="Goal" method="_on_area_entered"]
+[connection signal="timeout" from="Timer2D" to="." method="_on_timer_2d_timeout"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

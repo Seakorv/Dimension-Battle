@@ -1,0 +1,124 @@
+[gd_scene load_steps=28 format=3 uid="uid://c43keaw201nkq"]
+
+[ext_resource type="Script" path="res://Scripts/player_3d.gd" id="1_mfpik"]
+[ext_resource type="PackedScene" uid="uid://dgrs8uihg3uvp" path="res://Scenes/players_circle.tscn" id="2_e5ajs"]
+[ext_resource type="PackedScene" uid="uid://0xvbata1to4w" path="res://Scenes/players_square.tscn" id="3_xvanv"]
+[ext_resource type="PackedScene" uid="uid://b1uy0klkd0hjo" path="res://Scenes/players_triangle.tscn" id="4_rmuhi"]
+[ext_resource type="PackedScene" uid="uid://cmfeyqukf7ni6" path="res://Scenes/players_sphere.tscn" id="5_fwweq"]
+[ext_resource type="PackedScene" uid="uid://dnf2ihxjaur01" path="res://Scenes/players_cube.tscn" id="6_u8d3w"]
+[ext_resource type="PackedScene" uid="uid://1j2wximame00" path="res://Scenes/players_pyramid.tscn" id="7_s24df"]
+[ext_resource type="PackedScene" uid="uid://pahidhvrdm0e" path="res://Scenes/players_cone.tscn" id="8_nd016"]
+[ext_resource type="PackedScene" uid="uid://6mu1tugafi17" path="res://Scenes/players_cylinder.tscn" id="9_1gpii"]
+[ext_resource type="PackedScene" uid="uid://ctu5urx648sa" path="res://Scenes/players_prism.tscn" id="9_2r38n"]
+[ext_resource type="Shader" path="res://Shaders/Toon.gdshader" id="11_7ws4p"]
+[ext_resource type="AudioStream" uid="uid://chudlru8wjqe6" path="res://Assets/SFX/DB shoot.wav" id="12_pc8el"]
+[ext_resource type="AudioStream" uid="uid://dlie6edyfhck8" path="res://Assets/SFX/DB collect1st.wav" id="13_fgt5n"]
+[ext_resource type="AudioStream" uid="uid://dut24l512v5tr" path="res://Assets/SFX/DB collect2nd.wav" id="14_lyr7w"]
+[ext_resource type="AudioStream" uid="uid://thl0arp71jfn" path="res://Assets/SFX/shoot1SFX.wav" id="15_ysmej"]
+[ext_resource type="AudioStream" uid="uid://chnnqmej7uq0x" path="res://Assets/SFX/shoot2SFX.wav" id="16_2ngmv"]
+[ext_resource type="AudioStream" uid="uid://bb286fn0l7vli" path="res://Assets/SFX/shoot3SFX.wav" id="17_obrrf"]
+[ext_resource type="AudioStream" uid="uid://cq40whdv5mdx" path="res://Assets/SFX/shoot4SFX.wav" id="18_e4y72"]
+[ext_resource type="AudioStream" uid="uid://coupm4oedwh8m" path="res://Assets/SFX/PalloSFX.wav" id="19_1nuqy"]
+[ext_resource type="AudioStream" uid="uid://bgnuldpsviaj3" path="res://Assets/SFX/KuutioSFX.wav" id="20_8ul2a"]
+[ext_resource type="AudioStream" uid="uid://bkjv1xovwhh1w" path="res://Assets/SFX/PyramidiSFX.wav" id="21_40msa"]
+[ext_resource type="AudioStream" uid="uid://c1aw7gc5a3kx6" path="res://Assets/SFX/LieriöSFX.wav" id="22_12b5j"]
+[ext_resource type="AudioStream" uid="uid://cpi4jbhylf65o" path="res://Assets/SFX/KartioSFX.wav" id="23_skd6h"]
+[ext_resource type="AudioStream" uid="uid://c7rct8kvt1o38" path="res://Assets/SFX/PrismaSFX.wav" id="24_7cmlw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4nfpa"]
+render_priority = 0
+shader = ExtResource("11_7ws4p")
+shader_parameter/albedo = Color(1, 1, 0, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = true
+shader_parameter/use_specular = true
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = true
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a5s4o"]
+material = SubResource("ShaderMaterial_4nfpa")
+radial_segments = 7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mijxb"]
+height = 0.138684
+
+[node name="Player3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0401868, 0)
+collision_mask = 16
+script = ExtResource("1_mfpik")
+shapes_2D_on_player = Array[PackedScene]([ExtResource("2_e5ajs"), ExtResource("3_xvanv"), ExtResource("4_rmuhi")])
+shapes_3D_on_player = Array[PackedScene]([ExtResource("5_fwweq"), ExtResource("6_u8d3w"), ExtResource("7_s24df"), ExtResource("9_1gpii"), ExtResource("9_2r38n"), ExtResource("8_nd016"), null])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -1.31351e-18, 3.48787e-16, 3.48787e-16, 0.00376594, -3.48787e-16, -3.48787e-16, 1.31351e-18, 1, 0, 0.0949096, 0)
+mesh = SubResource("CylinderMesh_a5s4o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.09291, 0, 0, 0, 1.33192, 0, 0, 0, 1.08324, 0, 0, 0)
+shape = SubResource("CylinderShape3D_mijxb")
+
+[node name="ShapeOnPlayerPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 4.44614, -0.388976)
+
+[node name="TopShapeContainer" type="Node3D" parent="."]
+
+[node name="ShootSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_pc8el")
+
+[node name="collectfirstSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_fgt5n")
+volume_db = -10.0
+
+[node name="CollectsecondSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_lyr7w")
+volume_db = -10.0
+
+[node name="ShootSFX2" type="Node3D" parent="."]
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="ShootSFX2"]
+stream = ExtResource("15_ysmej")
+volume_db = -7.0
+
+[node name="Shoot2" type="AudioStreamPlayer3D" parent="ShootSFX2"]
+stream = ExtResource("16_2ngmv")
+volume_db = -7.0
+
+[node name="Shoot3" type="AudioStreamPlayer3D" parent="ShootSFX2"]
+stream = ExtResource("17_obrrf")
+volume_db = -7.0
+
+[node name="Shoot4" type="AudioStreamPlayer3D" parent="ShootSFX2"]
+stream = ExtResource("18_e4y72")
+volume_db = -7.0
+
+[node name="ShapesSFX" type="Node3D" parent="."]
+
+[node name="SphereSFX" type="AudioStreamPlayer3D" parent="ShapesSFX"]
+stream = ExtResource("19_1nuqy")
+
+[node name="CubeSFX" type="AudioStreamPlayer3D" parent="ShapesSFX"]
+stream = ExtResource("20_8ul2a")
+
+[node name="PyramidSFX" type="AudioStreamPlayer3D" parent="ShapesSFX"]
+stream = ExtResource("21_40msa")
+
+[node name="CylinderSFX" type="AudioStreamPlayer3D" parent="ShapesSFX"]
+stream = ExtResource("22_12b5j")
+
+[node name="ConeSFX" type="AudioStreamPlayer3D" parent="ShapesSFX"]
+stream = ExtResource("23_skd6h")
+
+[node name="PrismSFX" type="AudioStreamPlayer3D" parent="ShapesSFX"]
+stream = ExtResource("24_7cmlw")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

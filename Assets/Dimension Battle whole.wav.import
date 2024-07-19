@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cg7348lp7owcw"
+path="res://.godot/imported/Dimension Battle whole.wav-a6cb38f08c6674243f2fd2896d18f649.sample"
+
+[deps]
+
+source_file="res://Assets/Dimension Battle whole.wav"
+dest_files=["res://.godot/imported/Dimension Battle whole.wav-a6cb38f08c6674243f2fd2896d18f649.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=15
+edit/loop_end=-1
+compress/mode=0

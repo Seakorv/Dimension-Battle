@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://8fv3fi3h14sm"
+path="res://.godot/imported/DB life lost.wav-29a4a874f4683dc7b8781aededc59910.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/DB life lost.wav"
+dest_files=["res://.godot/imported/DB life lost.wav-29a4a874f4683dc7b8781aededc59910.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

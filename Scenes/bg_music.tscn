@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4kw3lh1m0pyo"]
+
+[ext_resource type="Script" path="res://Scripts/bg_music.gd" id="1_tana4"]
+[ext_resource type="AudioStream" uid="uid://b6rein00f40s4" path="res://Assets/Dimension Battle bgloop.wav" id="2_mvge7"]
+[ext_resource type="AudioStream" uid="uid://ddk1fj4m0jnh8" path="res://Assets/Dimension Battle bgloop +1 faster.wav" id="3_mfwyh"]
+[ext_resource type="AudioStream" uid="uid://bj6y0ivcfu6b4" path="res://Assets/Dimension Battle intro.wav" id="4_05jyb"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_tana4")
+
+[node name="BGMusicOne" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mvge7")
+volume_db = -25.0
+autoplay = true
+
+[node name="BGMusicTwo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mfwyh")
+volume_db = -22.0
+
+[node name="BGIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_05jyb")
+volume_db = -25.0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ikfkrmu7r4xj"]
+
+[ext_resource type="Script" path="res://Scripts/enemies.gd" id="1_0jsac"]
+[ext_resource type="Material" uid="uid://b2y7ggrl6d177" path="res://Shaders/enemy_material.tres" id="2_h31r1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bjd3f"]
+material = ExtResource("2_h31r1")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oycft"]
+
+[node name="EnemySphere" type="Area3D"]
+collision_layer = 32
+collision_mask = 76
+script = ExtResource("1_0jsac")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_bjd3f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_oycft")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

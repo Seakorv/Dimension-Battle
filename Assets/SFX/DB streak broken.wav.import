@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://da5jr20ymjd6g"
+path="res://.godot/imported/DB streak broken.wav-ce258521e5e17765910553574ae80e7b.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/DB streak broken.wav"
+dest_files=["res://.godot/imported/DB streak broken.wav-ce258521e5e17765910553574ae80e7b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dju7g4scbwtj1"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_32occ"]
+[ext_resource type="FontFile" uid="uid://m6yyn8s1njem" path="res://Assets/Fonts/Energy.ttf" id="1_ill3v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k56lr"]
+font = ExtResource("1_ill3v")
+font_size = 69
+font_color = Color(1, 0.376471, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_81dkw"]
+font = ExtResource("1_ill3v")
+font_size = 150
+font_color = Color(0.153076, 0.890625, 0, 1)
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("score_label", "lives_label")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1081.0
+offset_bottom = 979.0
+script = ExtResource("1_32occ")
+score_label = NodePath("Score")
+lives_label = NodePath("Lives")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 20.0
+offset_right = 1066.0
+offset_bottom = 90.0
+text = "Pisteet : 69420 "
+label_settings = SubResource("LabelSettings_k56lr")
+horizontal_alignment = 2
+
+[node name="Lives" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 76.0
+offset_bottom = 113.0
+text = "3"
+label_settings = SubResource("LabelSettings_81dkw")
+horizontal_alignment = 2

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmfeyqukf7ni6"]
+
+[ext_resource type="Script" path="res://Scripts/player_3D_shapes.gd" id="1_t1bao"]
+[ext_resource type="Material" uid="uid://5mhkxucwjbb" path="res://Shaders/players_sphere_material.tres" id="2_210bh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0tnj6"]
+material = ExtResource("2_210bh")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1836g"]
+
+[node name="PlayersSphere" type="Area3D"]
+collision_layer = 12
+collision_mask = 160
+script = ExtResource("1_t1bao")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_0tnj6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1836g")

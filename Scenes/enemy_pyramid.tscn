@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhi00hfeaveik"]
+
+[ext_resource type="Script" path="res://Scripts/enemies.gd" id="1_1n4bu"]
+[ext_resource type="PackedScene" uid="uid://rndch8wcry1n" path="res://Assets/enemy_pyramid.glb" id="1_316ng"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_42ihd"]
+size = Vector3(1.63599, 1.99622, 1.44728)
+
+[node name="EnemyPyramid" type="Area3D"]
+collision_layer = 32
+collision_mask = 76
+script = ExtResource("1_1n4bu")
+shape_ID = 2
+my_2D_one = 2
+my_2D_two = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0135498, -0.00323486, -0.23633)
+shape = SubResource("BoxShape3D_42ihd")
+
+[node name="enemy_pyramid" parent="." instance=ExtResource("1_316ng")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1j2wximame00"]
+
+[ext_resource type="PackedScene" uid="uid://ndsm66q4id3x" path="res://Assets/pyramid.glb" id="1_3338k"]
+[ext_resource type="Script" path="res://Scripts/player_3D_shapes.gd" id="1_jn38n"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a323m"]
+
+[node name="PlayersPyramid" type="Area3D"]
+collision_layer = 12
+collision_mask = 160
+script = ExtResource("1_jn38n")
+shape_ID = 2
+
+[node name="pyramid" parent="." instance=ExtResource("1_3338k")]
+transform = Transform3D(0.712685, 0, 0.363429, 0, 0.8, 0, -0.363429, 0, 0.712685, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 0.738, 0, 0, 0, 1.379, 0, 0, 0)
+shape = SubResource("CylinderShape3D_a323m")
+metadata/pyramid = false
