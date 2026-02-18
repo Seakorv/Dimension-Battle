@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://fj6sndtuf4vm"]
+[gd_scene format=3 uid="uid://fj6sndtuf4vm"]
 
-[ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_gdgc6"]
+[ext_resource type="Script" uid="uid://cxjkodealmjyh" path="res://Scripts/Main Menu.gd" id="1_gdgc6"]
 [ext_resource type="Theme" uid="uid://chyneastuoptt" path="res://Assets/GreenButtonTheme.tres" id="2_qkt0a"]
 [ext_resource type="Material" uid="uid://bhjsidfus7hq1" path="res://Shaders/3d_game.tres" id="3_puesa"]
 
@@ -12,7 +12,7 @@ MarginContainer/constants/margin_top = 10
 [sub_resource type="Theme" id="Theme_blbed"]
 VBoxContainer/constants/separation = 6
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=87733224]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gdgc6")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1452049301]
 show_behind_parent = true
 visibility_layer = 2
 material = ExtResource("3_puesa")
@@ -29,7 +29,7 @@ layout_mode = 0
 offset_right = 1091.0
 offset_bottom = 1947.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=368752482]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -43,29 +43,29 @@ offset_bottom = 115.0
 scale = Vector2(1.5, 1.5)
 theme = SubResource("Theme_i5621")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1166936473]
 layout_mode = 2
 theme = SubResource("Theme_blbed")
 
-[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=817104054]
 layout_mode = 2
 theme = ExtResource("2_qkt0a")
 text = "Pelaa"
 
-[node name="ScoreBoard" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ScoreBoard" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1509553274]
 visible = false
 layout_mode = 2
 theme = ExtResource("2_qkt0a")
 text = "Tulostaulukko
 "
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1715084940]
 layout_mode = 2
 theme = ExtResource("2_qkt0a")
 text = "Poistu
 "
 
-[node name="Scores" type="MarginContainer" parent="."]
+[node name="Scores" type="MarginContainer" parent="." unique_id=388660347]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -78,52 +78,52 @@ offset_right = 113.0
 offset_bottom = 226.52
 scale = Vector2(1.5, 1.5)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Scores"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Scores" unique_id=306372941]
 layout_mode = 2
 
-[node name="Label11" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label11" type="Label" parent="Scores/VBoxContainer" unique_id=1615390847]
 layout_mode = 2
 text = "ENNÄTYKSET"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label" type="Label" parent="Scores/VBoxContainer" unique_id=658116301]
 layout_mode = 2
 text = "1:"
 
-[node name="Label2" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label2" type="Label" parent="Scores/VBoxContainer" unique_id=972047426]
 layout_mode = 2
 text = "2:"
 
-[node name="Label3" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label3" type="Label" parent="Scores/VBoxContainer" unique_id=1098906486]
 layout_mode = 2
 text = "3:"
 
-[node name="Label4" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label4" type="Label" parent="Scores/VBoxContainer" unique_id=1546461446]
 layout_mode = 2
 text = "4:"
 
-[node name="Label5" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label5" type="Label" parent="Scores/VBoxContainer" unique_id=1468759242]
 layout_mode = 2
 text = "5:"
 
-[node name="Label6" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label6" type="Label" parent="Scores/VBoxContainer" unique_id=1515145549]
 layout_mode = 2
 text = "6:"
 
-[node name="Label7" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label7" type="Label" parent="Scores/VBoxContainer" unique_id=1196587447]
 layout_mode = 2
 text = "7:"
 
-[node name="Label8" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label8" type="Label" parent="Scores/VBoxContainer" unique_id=1637937564]
 layout_mode = 2
 text = "8:"
 
-[node name="Label9" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label9" type="Label" parent="Scores/VBoxContainer" unique_id=318831316]
 layout_mode = 2
 text = "9:"
 
-[node name="Label10" type="Label" parent="Scores/VBoxContainer"]
+[node name="Label10" type="Label" parent="Scores/VBoxContainer" unique_id=724038648]
 layout_mode = 2
 text = "10:"
 

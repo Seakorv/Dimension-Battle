@@ -30,4 +30,3 @@ func _physics_process(delta):
 func shoot_me():
 	is_shot = true
 	speed = speed_when_shot
-
